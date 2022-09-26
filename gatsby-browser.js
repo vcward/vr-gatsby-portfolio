@@ -5,3 +5,7 @@
  */
 
 // You can delete this file if you're not using it
+import "@fontsource/open-sans";
+import "@fontsource/raleway";
+import "@fontsource/montserrat/300.css";
+import "@fontsource/playfair-display";
