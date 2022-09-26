@@ -3,7 +3,7 @@ module.exports = {
     title: `Victoria Rhinebolt`,
     description: `My portfolio site.`,
     author: `Victoria Rhinebolt`,
-    siteUrl: ``,
+    siteUrl: `https://www.victoriarhinbolt.com`,
   },
   plugins: [
     `gatsby-plugin-image`,
