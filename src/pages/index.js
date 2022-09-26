@@ -4,7 +4,7 @@ import About from "../components/about"
 import Experience from "../components/experience"
 import Projects from "../components/projects"
 import Contact from "../components/contact"
-import { SEO } from "../components/seo"
+import Seo from "../components/seo"
 
 const IndexPage = () => {
   return (
@@ -20,5 +20,5 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => (
-  <SEO />
+  <Seo />
 )
