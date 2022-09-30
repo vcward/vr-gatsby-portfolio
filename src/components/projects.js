@@ -81,6 +81,32 @@ const ProjectsContainer = styled.div`
   .project-cards {
     display: grid;
     gap: 2rem;
+
+    a {
+      display: flex;
+      position: relative;
+    }
+
+    a:after {
+      content: '';
+      background: #011326;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    a:hover:after {
+      content: '';
+      background: transparent;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      cursor: pointer;
+    }
   }
 
   @media (min-width: 768px) {
@@ -109,7 +135,6 @@ const ProjectsContainer = styled.div`
 `;
 
 const ProjectItem = styled.div`
-  display: flex;
   box-shadow: 0px 16px 24px 2px hsla(0, 0%, 0%, 0.47), 0px 6px 30px 5px hsla(0, 0%, 0%, 0.49), 0px 8px 10px -5px hsla(0, 0%, 0%, 0.47);
   position: relative;
 
@@ -125,28 +150,6 @@ const ProjectItem = styled.div`
     font-size: 1.25rem;
     font-family: "Montserrat", sans-serif;
   }
-
-  &:after {
-    content: '';
-    background: #011326;
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    opacity: 0.4;
-    cursor: pointer;
-  }
-
-  &:hover:after {
-    content: '';
-    background: transparent;
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    cursor: pointer;
-  }
-
 `;
 
 const Projects = () => {
@@ -178,18 +181,18 @@ const Projects = () => {
       <ProjectsContainer>
         <div className="project-cards">
           {projects.map(project => (
-            <ProjectItem key={project.frontmatter.project} id={project.frontmatter.project}>
-              <a href={project.frontmatter.project_url} rel="noreferrer" target="_blank">
-              <GatsbyImage
-                alt={project.frontmatter.project_image_alt}
-                layout="constrained"
-                image={getImage(project.frontmatter.project_image)} />
-              <div className="project-description">
-                <h3>{project.frontmatter.project}</h3>
-                <p>{project.rawMarkdownBody}</p>
-              </div>
-              </a>
-            </ProjectItem>
+            <a key={project.frontmatter.project} href={project.frontmatter.project_url} rel="noreferrer" target="_blank">
+              <ProjectItem id={project.frontmatter.project}>
+                <GatsbyImage
+                  alt={project.frontmatter.project_image_alt}
+                  layout="constrained"
+                  image={getImage(project.frontmatter.project_image)} />
+                <div className="project-description">
+                  <h3>{project.frontmatter.project}</h3>
+                  <p>{project.rawMarkdownBody}</p>
+                </div>
+              </ProjectItem>
+            </a>
           ))}
         </div>
       </ProjectsContainer>      
